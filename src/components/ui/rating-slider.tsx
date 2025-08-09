@@ -20,6 +20,14 @@ const RatingSlider = React.forwardRef<
   }
 
   const getRatingText = (rating: number) => {
+    if (category === "Girlfriend Material") {
+      if (rating <= 2) return "Not at all"
+      if (rating <= 4) return "Maybe not"
+      if (rating <= 6) return "Could be"
+      if (rating <= 8) return "Definitely"
+      return "Perfect match!"
+    }
+    
     if (rating <= 2) return "Poor"
     if (rating <= 4) return "Below Average"
     if (rating <= 6) return "Average"

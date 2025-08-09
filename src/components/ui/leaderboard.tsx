@@ -1,15 +1,16 @@
-import { Trophy, Medal, Award, Laugh, Eye, Brain } from "lucide-react"
+import { Trophy, Medal, Award, Laugh, Eye, Brain, Heart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 interface LeaderboardEntry {
   id: string
   name: string
-  photo_url: string
+  photos: string[]
   totalScore: number
   humourScore: number
   appearanceScore: number
   intelligenceScore: number
+  girlfriendMaterialScore: number
   ratingsCount: number
 }
 
@@ -39,6 +40,7 @@ export function Leaderboard({ entries, onBackToRating }: LeaderboardProps) {
   const sortedByHumour = [...entries].sort((a, b) => b.humourScore - a.humourScore)
   const sortedByAppearance = [...entries].sort((a, b) => b.appearanceScore - a.appearanceScore)
   const sortedByIntelligence = [...entries].sort((a, b) => b.intelligenceScore - a.intelligenceScore)
+  const sortedByGirlfriendMaterial = [...entries].sort((a, b) => b.girlfriendMaterialScore - a.girlfriendMaterialScore)
 
   const LeaderboardList = ({ data, scoreKey }: { data: LeaderboardEntry[], scoreKey: keyof LeaderboardEntry }) => (
     <div className="space-y-3">
@@ -50,7 +52,7 @@ export function Leaderboard({ entries, onBackToRating }: LeaderboardProps) {
             </div>
             
             <img 
-              src={entry.photo_url} 
+              src={entry.photos[0]} 
               alt={entry.name}
               className="w-12 h-12 rounded-full object-cover border-2 border-primary/20"
             />
@@ -89,8 +91,8 @@ export function Leaderboard({ entries, onBackToRating }: LeaderboardProps) {
 
       {/* Tabs for different categories */}
       <Tabs defaultValue="overall" className="mb-6">
-        <TabsList className="grid w-full grid-cols-4 glass-card">
-          <TabsTrigger value="overall" className="data-[state=active]:gradient-primary">
+        <TabsList className="grid w-full grid-cols-5 glass-card">
+          <TabsTrigger value="overall" className="data-[state=active]:gradient-primary text-xs">
             Overall
           </TabsTrigger>
           <TabsTrigger value="humour" className="data-[state=active]:gradient-primary">
@@ -101,6 +103,9 @@ export function Leaderboard({ entries, onBackToRating }: LeaderboardProps) {
           </TabsTrigger>
           <TabsTrigger value="intelligence" className="data-[state=active]:gradient-primary">
             <Brain className="w-4 h-4" />
+          </TabsTrigger>
+          <TabsTrigger value="girlfriend" className="data-[state=active]:gradient-primary">
+            <Heart className="w-4 h-4" />
           </TabsTrigger>
         </TabsList>
         
@@ -118,6 +123,10 @@ export function Leaderboard({ entries, onBackToRating }: LeaderboardProps) {
         
         <TabsContent value="intelligence" className="mt-6">
           <LeaderboardList data={sortedByIntelligence} scoreKey="intelligenceScore" />
+        </TabsContent>
+        
+        <TabsContent value="girlfriend" className="mt-6">
+          <LeaderboardList data={sortedByGirlfriendMaterial} scoreKey="girlfriendMaterialScore" />
         </TabsContent>
       </Tabs>
 

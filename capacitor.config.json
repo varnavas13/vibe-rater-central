@@ -1,0 +1,26 @@
+{
+  "appId": "app.lovable.808e4a613bef48c397a82e46536384be",
+  "appName": "vibe-rater-central",
+  "webDir": "dist",
+  "server": {
+    "url": "https://808e4a61-3bef-48c3-97a8-2e46536384be.lovableproject.com?forceHideBadge=true",
+    "cleartext": true
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 3000,
+      "launchAutoHide": true,
+      "backgroundColor": "#ffffffff",
+      "androidSplashResourceName": "splash",
+      "androidScaleType": "CENTER_CROP",
+      "showSpinner": true,
+      "androidSpinnerStyle": "large",
+      "iosSpinnerStyle": "small",
+      "spinnerColor": "#999999",
+      "splashFullScreen": true,
+      "splashImmersive": true,
+      "layoutName": "launch_screen",
+      "useDialog": true
+    }
+  }
+}
