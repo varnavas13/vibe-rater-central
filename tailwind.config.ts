@@ -26,7 +26,26 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					glow: 'hsl(var(--primary-glow))'
+				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))'
+				},
+				rank: {
+					gold: 'hsl(var(--rank-gold))',
+					silver: 'hsl(var(--rank-silver))',
+					bronze: 'hsl(var(--rank-bronze))'
+				},
+				rating: {
+					low: 'hsl(var(--rating-low))',
+					medium: 'hsl(var(--rating-medium))',
+					high: 'hsl(var(--rating-high))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
